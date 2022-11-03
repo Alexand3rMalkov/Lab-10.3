@@ -15,7 +15,7 @@ void main() {
     while (v == 1) {
 
         setlocale(LC_ALL, "rus");
-        printf("Четырехугольник\n");
+        printf("Параллелограмм\n");
         printf("1)Площадь\n");
         printf("2)Рисунок\n");
         printf("3)Определение\n");
