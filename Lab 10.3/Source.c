@@ -3,15 +3,13 @@
 #include <math.h>
 #include <locale.h>
 
-float halfMeter(float a, float b, float z, float d);
+float parall(float a, float H);
 
-float quadrilateral(float a, float b, float z, float d);
-
-int draw_quadrilateral(int x, int y, char c);
+int drawParall(int x, int y, char c);
 
 void main() {
-    float a, b, z, d, p;
-    int a1, b1, z1, d1, n;
+    float a, H;
+    int x, y, n;
     int v = 1;
     char c;
     while (v == 1) {
@@ -26,17 +24,17 @@ void main() {
         scanf("%d", &n);
         switch (n) {
         case 1:
-            puts("Введите стороны a, b, c, d\n");
-            scanf("%f %f %f %f", &a, &b, &z, &d);
-            printf("Площадь четырехугольника = %.4f\n", quadrilateral(a, b, z, d));
+            puts("Введите стороны a, H\n");
+            scanf("%f %f", &a, &H);
+            printf("Площадь четырехугольника = %.4f\n", parall(a, H));
             break;
         case 2:
-            puts("Введите стороны a, b, c, d и символ: \n");
-            scanf("%d %d %d %d %c", &a1, &b1, &z1, &d1, &c);
-            draw_quadrilateral(a1, b1, z1, d1, c);
+            puts("Введите стороны a, b и символ: \n");
+            scanf("%d %d %c", &x, &y, &c);
+            drawParall(x, y, c);
             break;
         case 3:
-            printf("Четырёхугольник — это геометрическая фигура, состоящая из четырёх точек, никакие три из которых не лежат на одной прямой, и четырёх отрезков, последовательно соединяющих эти точки.\n");
+            printf("Четырехугольник — это геометрическая фигура, состоящая из четырёх точек, никакие три из которых не лежат на одной прямой, и четырёх отрезков, последовательно соединяющих эти точки.\n");
             break;
         case 4:
             printf("Не существует четырёхугольников, у которых все углы острые или все углы тупые.\n");
@@ -53,19 +51,13 @@ void main() {
     }
 }
 
-float halfMeter(float a, float b, float z, float d) {
-    float p;
-    p = (a + b + z + d) / 2;
-    return p;
-}
-
-float quadrilateral(float a, float b, float z, float d) {
-    float S, p = halfMeter(a, b, z, d);
-    S = sqrt((p - a) * (p - b) * (p - z) * (p - d));
+float parall(float a, float H) {
+    float S;
+    S = a * H;
     return S;
 }
 
-int draw_quadrilateral(int x, int y, char c) {
+int drawParall(int x, int y, char c) {
     int i, j;
     for (i = 1; i <= x; i++)
     {
